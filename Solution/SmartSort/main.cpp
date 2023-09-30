@@ -5,7 +5,6 @@
 int main() {
     std::vector<int> arr = { 8, 2, 5 };
 
-    // TODO: sorting
     BubbleSort::sort(arr);
 
     for (int i = 0; i < arr.size(); i++) {
