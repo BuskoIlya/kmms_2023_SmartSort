@@ -1,13 +1,14 @@
 #include <iostream>
 
+#include "bubble_sort.hpp"
+
 int main() {
-    // TODO: input array
+    std::vector<int> arr = { 8, 2, 5 };
+
     // TODO: sorting
-    // TODO: output result
+    BubbleSort::sort(arr);
 
-    // Test
-    std::cout << "Hello!";
-
-    //std::cout << std::endl;
-    //system("PAUSE");
+    for (int i = 0; i < arr.size(); i++) {
+        std::cout << arr[i] << " ";
+    }
 }
