@@ -3,11 +3,12 @@
 #include "bubble_sort.hpp"
 
 int main() {
-    std::vector<int> arr = { 8, 2, 5 };
+    int arr[] = { 8, 2, 5 };
+    const int arr_size = std::size(arr);
 
-    BubbleSort::sort(arr);
+    BubbleSort::sort(arr, arr_size);
 
-    for (int i = 0; i < arr.size(); i++) {
+    for (int i = 0; i < arr_size; i++) {
         std::cout << arr[i] << " ";
     }
 }
