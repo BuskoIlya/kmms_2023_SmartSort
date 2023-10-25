@@ -1,12 +1,17 @@
-#include <iostream>
+﻿#include <clocale>
 
-#include "bubble_sort.hpp"
+#include "./sortings/ibusko_sortings.hpp"
 #include "ioarray.hpp"
 
 int main() {
-    int arr[] = { 8, 2, 5 };
-    const int arr_size = std::size(arr);
+    std::setlocale(LC_ALL, "Russian");
 
-    BubbleSort::sort(arr, arr_size);
-    IOArray::print_array(arr, arr_size);
+    int arr[] = { 8, 2, 5 };
+    const int arr_size = sizeof(arr) / sizeof(arr[0]);
+
+    IOArray::print_array("Первоначальный массив: ", arr, arr_size);
+    IBusko::sort_by_bubble(arr, arr_size);
+    IOArray::print_array("Отсортированный массив: ", arr, arr_size);
+
+    return 0;
 }

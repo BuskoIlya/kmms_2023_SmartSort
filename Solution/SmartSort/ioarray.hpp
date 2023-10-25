@@ -1,5 +1,5 @@
-#pragma once
+﻿#pragma once
 
 namespace IOArray {
-    void print_array(int arr[], const int& n);
+    void print_array(const char* const comment, const int* const arr, const int n);
 }
