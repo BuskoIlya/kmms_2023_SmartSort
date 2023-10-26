@@ -1,93 +1,36 @@
-#include "eabrakhin_merge_sorting.hpp"
+#include <iostream>
 
-int main() {
-	int arr_size;
-	std::cout << "Enter array size: ";
-	std::cin >> arr_size;
+#include "eabrakhin_radix_sorting.hpp"
 
-	int* intervals_arr = new int[arr_size];
-	init_intervals_array(intervals_arr, arr_size);
-
-	int intervals_count = 0;
-	while (intervals_arr[intervals_count] < intervals_limit_count) {
-		intervals_count++;
-	}
-
-	test(arr_size, intervals_arr, intervals_count);
-}
-
-void init_array(int* arr, const int n) {
-	for (int index = 0; index < n; ++index) {
-		arr[index] = (mt() % intervals_limit_count);
-	}
-}
-
-void print_array(int* arr, const int n) {
-	for (int index = 0; index < n; ++index) {
-		std::cout << " " << arr[index];
-	}
-	std::cout << std::endl;
-}
-
-void shell_sort(
-	int* sorting_arr, const int sorting_arr_size,
-	int* intervals_arr, const int intervals_arr_size
-) {
-	for (int k = intervals_arr_size - 1; k >= 0; --k) {
-		for (int i = intervals_arr[k]; i < sorting_arr_size; ++i) {
-			int temp = sorting_arr[i];
-			int j = i;
-			for (; j >= intervals_arr[k] && sorting_arr[j - intervals_arr[k]] > temp; j -= intervals_arr[k]) {
-				sorting_arr[j] = sorting_arr[j - intervals_arr[k]];
-			}
-			sorting_arr[j] = temp;
+void radix_sort(int* const arr, const int arr_size) {
+	int max = arr[0];
+	for (int i = 1; i < arr_size; i++) {
+		if (arr[i] > max) {
+			max = arr[i];
 		}
 	}
-}
 
-void test(
-	int sorting_arr_size,
-	int* intervals_arr,
-	int intervals_arr_size
-) {
-	int* sorting_arr = new int[sorting_arr_size];
-	init_array(sorting_arr, sorting_arr_size);
-	print_array(sorting_arr, sorting_arr_size);
+	for (int digit = 1; max / digit > 0; digit *= 10) {
+		int* output = new int[arr_size];
+		int count[10] = { 0 };
 
-	Timer timer{};
+		for (int i = 0; i < arr_size; i++) {
+			count[(arr[i] / digit) % 10]++;
+		}
 
-	timer.run();
-	std::sort(sorting_arr, sorting_arr + sorting_arr_size);
-	const double sort_time = timer.elapsed();
-	std::cout << "Sort: " << sort_time << std::endl;
+		for (int i = 1; i < 10; i++) {
+			count[i] += count[i - 1];
+		}
 
-	print_array(sorting_arr, sorting_arr_size);
-	std::cout << std::endl;
+		for (int i = arr_size - 1; i >= 0; i--) {
+			output[count[(arr[i] / digit) % 10] - 1] = arr[i];
+			count[(arr[i] / digit) % 10]--;
+		}
 
-	init_array(sorting_arr, sorting_arr_size);
-	print_array(sorting_arr, sorting_arr_size);
+		for (int i = 0; i < arr_size; i++) {
+			arr[i] = output[i];
+		}
 
-	timer.reset();
-	shell_sort(sorting_arr, sorting_arr_size, intervals_arr, intervals_arr_size);
-	const double shell_sort_time = timer.elapsed();
-	std::cout << "Shell sort: " << shell_sort_time << std::endl;
-
-	print_array(sorting_arr, sorting_arr_size);
-	std::cout << std::endl;
-}
-
-Timer::Timer() {}
-
-void Timer::reset() {
-	m_beg = std::chrono::high_resolution_clock::now();
-}
-
-double Timer::elapsed() const {
-	return
-		std::chrono::duration_cast<std::chrono::duration<double, std::ratio<1>>>
-		(std::chrono::high_resolution_clock::now() - m_beg).count();
-}
-
-void Timer::run() {
-	m_beg = std::chrono::high_resolution_clock::now();
+		delete[] output;
+	}
 }
