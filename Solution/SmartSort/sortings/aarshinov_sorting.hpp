@@ -1,5 +1,5 @@
 #pragma once
 
 namespace AArshinov {
-    void heap_sort(int arr[], const int n);
+    void heap_sort(int arr[], const int N);
 }
