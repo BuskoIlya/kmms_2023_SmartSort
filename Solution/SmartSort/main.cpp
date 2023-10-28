@@ -12,24 +12,34 @@ int main() {
     Menu::Item isort_by_ibusko_bubble = {
         Menu::ItemType::SORT_BY_IBUSKO_BUBBLE,
         "1 - Отсортировать массив сортировкой Бусько Ильи",
+        "Бусько Илья >> ",
         Menu::sort_by_ibusko_bubble
+    };
+    Menu::Item isort_by_akrylov_bubble = {
+        Menu::ItemType::SORT_BY_AKRYLOV_BUBBLE,
+        "2 - Отсортировать массив сортировкой Александра Крылова",
+        "Александр Крылов >> ",
+        Menu::sort_by_akrylov_bubble
     };
     
     Menu::Item arr_items[] = {
-        isort_by_ibusko_bubble
+        isort_by_ibusko_bubble,
+        isort_by_akrylov_bubble
     };
     
     int menu_input = 0;
     do {
         std::cout << "Выберите действие:" << std::endl;
         std::cout << isort_by_ibusko_bubble.title << std::endl;
+        std::cout << isort_by_akrylov_bubble.title << std::endl;
         std::cout << "0 - выйти из программы" << std::endl;
         std::cout << "> ";
         std::cin >> menu_input;
     
         if (menu_input != Menu::ItemType::EXIT) {
-            arr_items[menu_input - 1].fptr(arr, arr_size);
+            arr_items[menu_input - 1].fptr(arr_items[menu_input - 1].comment, arr, arr_size);
         }
+        std::cout << std::endl;
     } while (menu_input != Menu::ItemType::EXIT);
 
     return 0;
