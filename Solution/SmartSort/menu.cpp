@@ -1,13 +1,7 @@
 #include "menu.h"
 
-#include <iostream>
-
-#include "./sortings/ibusko_sortings.hpp"
 #include "ioarray.hpp"
-
-void Menu::show_smile() {
-    std::cout << char(0) << std::endl;
-}
+#include "./sortings/ibusko_sortings.hpp"
 
 void Menu::sort_by_ibusko_bubble(int arr[], const int arr_size) {
     IOArray::print_array("Первоначальный массив: ", arr, arr_size);
