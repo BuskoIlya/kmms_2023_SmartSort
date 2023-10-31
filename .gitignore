@@ -9,5 +9,5 @@ Solution/SmartSort/x64/
 *.vcxproj
 *.vcxproj.*
 
-CmakeLists.txt
+CMakeLists.txt
 cmake-build-debug/
