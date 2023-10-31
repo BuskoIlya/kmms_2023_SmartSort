@@ -1,8 +1,7 @@
 ﻿#include <clocale>
+#include <iostream>
 
-#include "./sortings/ibusko_sortings.hpp"
-#include "ioarray.hpp"
-#include "./sortings/itrofimov_sort.h"
+#include "menu.h"
 
 int main() {
     std::setlocale(LC_ALL, "Russian");
@@ -10,10 +9,46 @@ int main() {
     int arr[] = { 8, 2, 5 };
     const int arr_size = sizeof(arr) / sizeof(arr[0]);
 
-    IOArray::print_array("Первоначальный массив: ", arr, arr_size);
-    ITrofimov::DtSort(arr, arr_size);
-    //IBusko::sort_by_bubble(arr, arr_size);
-    IOArray::print_array("Отсортированный массив: ", arr, arr_size);
+    Menu::Item isort_by_ibusko_bubble = {
+        Menu::ItemType::SORT_BY_IBUSKO_BUBBLE,
+        "1 - Отсортировать массив сортировкой Бусько Ильи",
+        "Бусько Илья >> ",
+        Menu::sort_by_ibusko_bubble
+    };
+    Menu::Item isort_by_akrylov_bubble = {
+        Menu::ItemType::SORT_BY_AKRYLOV_BUBBLE,
+        "2 - Отсортировать массив сортировкой Александра Крылова",
+        "Александр Крылов >> ",
+        Menu::sort_by_akrylov_bubble
+    };
+    Menu::Item isort_by_asulimov_bubble = {
+        Menu::ItemType::SORT_BY_AKRYLOV_BUBBLE,
+        "3 - Отсортировать массив сортировкой Андрея Сулимова",
+        "Андрей Сулимов >> ",
+        Menu::sort_by_asulimov_bubble
+    };
+
+    Menu::Item arr_items[] = {
+        isort_by_ibusko_bubble,
+        isort_by_akrylov_bubble,
+        isort_by_asulimov_bubble
+    };
+    
+    int menu_input = 0;
+    do {
+        std::cout << "Выберите действие:" << std::endl;
+        std::cout << isort_by_ibusko_bubble.title << std::endl;
+        std::cout << isort_by_akrylov_bubble.title << std::endl;
+        std::cout << isort_by_asulimov_bubble.title << std::endl;
+        std::cout << "0 - выйти из программы" << std::endl;
+        std::cout << "> ";
+        std::cin >> menu_input;
+    
+        if (menu_input != Menu::ItemType::EXIT) {
+            arr_items[menu_input - 1].fptr(arr_items[menu_input - 1].comment, arr, arr_size);
+        }
+        std::cout << std::endl;
+    } while (menu_input != Menu::ItemType::EXIT);
 
     return 0;
 }
