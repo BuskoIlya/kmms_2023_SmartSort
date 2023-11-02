@@ -2,7 +2,7 @@
 #include <iostream>
 
 #include "menu.h"
-//
+#include "ioarray.hpp"
 int main() {
     std::setlocale(LC_ALL, "Russian");
 
@@ -22,7 +22,7 @@ int main() {
         Menu::sort_by_akrylov_bubble
     };
     Menu::Item isort_by_asulimov_bubble = {
-        Menu::ItemType::SORT_BY_AKRYLOV_BUBBLE,
+        Menu::ItemType::SORT_BY_ASULIMOV_BUBBLE,
         "3 - Отсортировать массив сортировкой Андрея Сулимова",
         "Андрей Сулимов >> ",
         Menu::sort_by_asulimov_bubble
