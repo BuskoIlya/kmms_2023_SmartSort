@@ -8,12 +8,12 @@ void VBagrov::sort_by_merge(int arr[], const int n) {
 }
 
 void sort(int a[], const int start, const int q, const int end) {
-    int first[q - start + 1];
+    int* first = new int[q - start + 1];
     for (int i = 0; i < q - start; i++) {
         first[i] = a[start + i];
     }
 
-    int second[end - q + 1];
+    int* second = new int[end - q + 1];
     for (int i = q; i < end; i++) {
         second[i - q] = a[i];
     }
@@ -32,6 +32,9 @@ void sort(int a[], const int start, const int q, const int end) {
             j++;
         }
     }
+
+    delete[] first;
+    delete[] second;
 }
 
 void sort_by_recursive(int a[], const int start, const int end) {
