@@ -1,7 +1,15 @@
 .*
 !.gitignore
 
+Solution/.vs/
+Solution/x64/
+Solution/SmartSort/x64/
+
+*.sln
+*.vcxproj
+*.vcxproj.*
+
+CMakeLists.txt
+cmake-build-debug/
 CMakeLists.txt
 .idea/
-cmake-build-debug/
-
