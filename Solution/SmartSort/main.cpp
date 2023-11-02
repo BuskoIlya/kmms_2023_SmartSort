@@ -49,6 +49,5 @@ int main() {
         }
         std::cout << std::endl;
     } while (menu_input != Menu::ItemType::EXIT);
-
     return 0;
 }
