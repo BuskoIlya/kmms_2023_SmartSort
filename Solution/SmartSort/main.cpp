@@ -2,7 +2,7 @@
 #include <iostream>
 
 #include "menu.h"
-
+//
 int main() {
     std::setlocale(LC_ALL, "Russian");
 
