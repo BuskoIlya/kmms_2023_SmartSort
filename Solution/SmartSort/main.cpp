@@ -3,6 +3,8 @@
 
 #include "menu.h"
 
+// test push
+
 int main() {
     std::setlocale(LC_ALL, "Russian");
 
