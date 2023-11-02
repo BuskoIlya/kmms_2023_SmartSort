@@ -3,6 +3,8 @@
 
 #include "menu.h"
 
+// test push 2
+
 int main() {
     std::setlocale(LC_ALL, "Russian");
 
@@ -49,6 +51,5 @@ int main() {
         }
         std::cout << std::endl;
     } while (menu_input != Menu::ItemType::EXIT);
-
     return 0;
 }
