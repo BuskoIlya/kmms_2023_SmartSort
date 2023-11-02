@@ -7,6 +7,7 @@
 #include "./sortings/asulimov_sortings.hpp"
 #include "./sortings/ibusko_sortings.hpp"
 
+
 void Menu::sort_by_akrylov_bubble(const char* const comment, int arr[], const int arr_size) {
     std::cout << comment << std::endl;
     IOArray::print_array("Первоначальный массив: ", arr, arr_size);
