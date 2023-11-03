@@ -12,14 +12,14 @@ int main() {
         "Бусько Илья >> ",
         Menu::sort_by_ibusko_bubble
     };
-    Menu::Item isort_by_akrylov_bubble = {
-        Menu::ItemType::SORT_BY_AKRYLOV_BUBBLE,
+    Menu::Item isort_by_akrylov_quick = {
+        Menu::ItemType::SORT_BY_AKRYLOV_QUICK,
         "2 - Отсортировать массив сортировкой Александра Крылова",
         "Александр Крылов >> ",
-        Menu::sort_by_akrylov_bubble
+        Menu::sort_by_akrylov_quick
     };
     Menu::Item isort_by_asulimov_bubble = {
-        Menu::ItemType::SORT_BY_AKRYLOV_BUBBLE,
+        Menu::ItemType::SORT_BY_ASULIMOV_BUBBLE,
         "3 - Отсортировать массив сортировкой Андрея Сулимова",
         "Андрей Сулимов >> ",
         Menu::sort_by_asulimov_bubble
@@ -27,7 +27,7 @@ int main() {
 
     Menu::Item arr_items[] = {
         isort_by_ibusko_bubble,
-        isort_by_akrylov_bubble,
+        isort_by_akrylov_quick,
         isort_by_asulimov_bubble
     };
 
@@ -35,7 +35,7 @@ int main() {
     do {
         std::cout << "Выберите действие:" << std::endl;
         std::cout << isort_by_ibusko_bubble.title << std::endl;
-        std::cout << isort_by_akrylov_bubble.title << std::endl;
+        std::cout << isort_by_akrylov_quick.title << std::endl;
         std::cout << isort_by_asulimov_bubble.title << std::endl;
         std::cout << "0 - выйти из программы" << std::endl;
         std::cout << "> ";
