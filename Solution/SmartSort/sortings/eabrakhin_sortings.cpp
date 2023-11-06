@@ -1,8 +1,6 @@
-#include <iostream>
+#include "eabrakhin_sortings.hpp"
 
-#include "eabrakhin_radix_sorting.hpp"
-
-void radix_sort(int* const arr, const int arr_size) {
+void EAbrakhin::sort_by_radix(int* const arr, const int arr_size) {
 	int max = arr[0];
 	for (int i = 1; i < arr_size; i++) {
 		if (arr[i] > max) {
