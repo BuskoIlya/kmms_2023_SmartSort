@@ -1,5 +1,5 @@
 #pragma once
 
 namespace SMarkov {
-    void sort1(int arr[], const int n);
+    void insertion_sort(int arr[], const int n);
 }
