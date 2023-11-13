@@ -1,0 +1,6 @@
+#ifndef KMMS_2023_SMARTSORT_AANTONIAN_SORTING_HPP
+#define KMMS_2023_SMARTSORT_AANTONIAN_SORTING_HPP
+namespace AAntonian {
+    void sorting(int arr[], const int n);
+}
+#endif //KMMS_2023_SMARTSORT_AANTONIAN_SORTING_HPP
