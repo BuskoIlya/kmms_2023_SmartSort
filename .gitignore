@@ -11,3 +11,5 @@ Solution/SmartSort/x64/
 
 CMakeLists.txt
 cmake-build-debug/
+CMakeLists.txt
+.idea/
