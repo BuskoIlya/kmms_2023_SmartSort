@@ -1,8 +1,5 @@
-#ifndef NPUSHKAREV_SORT_HPP
-#define NPUSHKAREV_SORT_HPP
+#pragma once
 
-namespace bubbleSort {
-    void sort (int* arr, const int arr_size);
+namespace NPushkarev {
+    void sort_by_bubble (int* arr, const int arr_size);
 }
-
-#endif

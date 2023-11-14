@@ -27,11 +27,18 @@ int main() {
         "Андрей Сулимов >> ",
         Menu::sort_by_asulimov_bubble
     };
+    Menu::Item isort_by_npushkarev_bubble = {
+        Menu::ItemType::SORT_BY_IBUSKO_BUBBLE,
+        "4 - Отсортировать массив сортировкой Никиты Пушкарева",
+        "Пушкарев Никита >> ",
+        Menu::sort_by_ibusko_bubble
+    };
 
     Menu::Item arr_items[] = {
         isort_by_ibusko_bubble,
         isort_by_akrylov_bubble,
-        isort_by_asulimov_bubble
+        isort_by_asulimov_bubble,
+        isort_by_npushkarev_bubble
     };
     
     int menu_input = 0;
@@ -40,6 +47,7 @@ int main() {
         std::cout << isort_by_ibusko_bubble.title << std::endl;
         std::cout << isort_by_akrylov_bubble.title << std::endl;
         std::cout << isort_by_asulimov_bubble.title << std::endl;
+        std::cout << isort_by_npushkarev_bubble.title << std::endl;
         std::cout << "0 - выйти из программы" << std::endl;
         std::cout << "> ";
         std::cin >> menu_input;
